@@ -27,8 +27,8 @@ It uses **pure Flask**, in-memory data storage (`expenses` dict), and standard R
 | 4   | Validate allowed keys                  | ✅ Done    |
 | 5   | Add proper error handling              | ✅ Done    |
 | 6   | Consistent response formatting         | ✅ Done    |
-| 7   | Convert to Blueprints & MethodView     | ⬜ Pending |
-| 8   | Add Marshmallow Schemas                | ⬜ Pending |
+| 7   | Convert to Blueprints & MethodView     | ✅ Done |
+| 8   | Add Marshmallow Schemas                | ✅ Done |
 | 9   | Database Integration                   | ⬜ Pending |
 | 10  | JWT Authentication                     | ⬜ Pending |
 
