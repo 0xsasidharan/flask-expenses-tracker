@@ -9,12 +9,12 @@ blp = Blueprint("Expense" , __name__ , description="Operations on Expense")
 
 @blp.route("/expenses")
 class ExpenseListResource(MethodView):
-    @blp.response(200)
+    @blp.response(200,ExpensesSchema(many=True))
     def get(self):
         return { "expenses" : list(expenses.values())} , 200
 
     @blp.arguments(ExpensesSchema)
-    @blp.response(201)
+    @blp.response(201, ExpensesSchema)
     def post(self , request_data):
 
         expenses_id = uuid4().hex
@@ -36,7 +36,7 @@ class ExpenseResource(MethodView):
         return {"message" : "Expenses deleted successfully"} , 200
 
     @blp.arguments(ExpensesUpdateSchema)
-    @blp.response(200 )
+    @blp.response(200, ExpensesSchema )
     def put(self,request_data, expenses_id):
 
         if expenses_id not in expenses:
@@ -48,7 +48,7 @@ class ExpenseResource(MethodView):
         
 
 
-    @blp.response(200)
+    @blp.response(200 , ExpensesSchema)
     def get(self ,expenses_id):
         if expenses_id not in expenses:
             return {"message" : "Expenses id not found"} , 404
